@@ -19,17 +19,15 @@ import androidx.core.view.marginLeft as marginLeft
 
 @Suppress("PLUGIN_WARNING")
 class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
-    private var textView: TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val dateToday = Date()
-        val calendar : CalendarView = findViewById(R.id.calendar_grid)
+        val pBar: ProgressBar = findViewById(R.id.progress)
+        setProgressbar(pBar)
 
-
-        //TODO make so a text box pops up after the date picker to write your todo --boris
-
+        //TODO make dialog submit button round --b
         fab_btn.setOnClickListener{
             showDatePicker()
 
@@ -77,6 +75,11 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             val ll: LinearLayout = findViewById(R.id.ll_for_todos)
             ll.addView(setTextView(newTv = newTv, input = activityEntered, date= date))
         }
+    }
+
+    //TODO make it so progress bar displays accurate data --b
+    private fun setProgressbar(pb: ProgressBar): ProgressBar{
+        return pb
     }
 }
 
