@@ -34,7 +34,8 @@
                 android:id="@+id/calendar_grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top">
+                android:layout_gravity="top"
+                android:theme="@style/Theme.Design.Light" >
 
             </CalendarView>
 
