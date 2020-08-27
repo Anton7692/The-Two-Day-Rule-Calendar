@@ -27,9 +27,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="50dp">
-
+            android:orientation="vertical">
             <CalendarView
                 android:id="@+id/calendar_grid"
                 android:layout_width="match_parent"
@@ -70,6 +68,14 @@
                     android:text="99/99"
                     android:textColor="@android:color/black" />
             </LinearLayout>
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Hello"
+                android:gravity="center"
+                android:textSize="30dp">
+            </TextView>
         </LinearLayout>
     </ScrollView>
 
