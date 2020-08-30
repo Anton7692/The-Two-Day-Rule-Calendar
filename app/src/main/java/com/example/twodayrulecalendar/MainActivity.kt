@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.layout_dialog.view.*
 import java.util.*
 import androidx.core.view.marginLeft as marginLeft
 
-@Suppress("PLUGIN_WARNING")
 class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {

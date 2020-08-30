@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/qq_bg">
+    android:background="@color/dark"
+    android:theme="@style/DarkTheme">
     <!-- To change picture change background above -->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -36,7 +37,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 app:cardCornerRadius="15dp"
-                android:backgroundTint="@color/transparentWhite"
+                android:backgroundTint="@color/transparentDark"
+                android:elevation="08dp"
                 app:cardElevation="0dp">
                 <!-- To change transparency go to res/values/colors.xml -->
                 <CalendarView
@@ -44,8 +46,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:backgroundTint="@color/transparentWhite"
-                    android:theme="@style/Theme.Design.Light">
+                    android:backgroundTint="@color/transparentDark"
+                    android:elevation="08dp">
 
                 </CalendarView>
             </androidx.cardview.widget.CardView>
@@ -58,7 +60,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 app:cardCornerRadius="15dp"
-                android:backgroundTint="@color/transparentWhite"
+                android:backgroundTint="@color/transparentDark"
                 app:cardElevation="0dp">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -102,7 +104,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 app:cardCornerRadius="15dp"
-                android:backgroundTint="@color/transparentWhite"
+                android:backgroundTint="@color/transparentDark"
                 app:cardElevation="0dp">
                 <LinearLayout
                     android:id="@+id/ll_for_todos"

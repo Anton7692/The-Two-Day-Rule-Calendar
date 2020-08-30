@@ -21,4 +21,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DarkTheme" parent="Theme.AppCompat.DayNight"/>
+
+    <style name="MaterialDarkTheme" parent="Theme.MaterialComponents.DayNight"/>
+
 </resources>
