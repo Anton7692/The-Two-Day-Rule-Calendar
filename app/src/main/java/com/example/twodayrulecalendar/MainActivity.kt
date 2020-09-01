@@ -4,33 +4,67 @@ import android.app.ActionBar
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.NonNull
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.TooltipCompat
 import androidx.core.view.marginRight
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
 import com.squareup.timessquare.CalendarPickerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_dialog.view.*
 import java.util.*
 import androidx.core.view.marginLeft as marginLeft
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 
 class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
+
+    var drawerLayout: DrawerLayout? = null
+    var navView: NavigationView? = null
+    var toolbar: Toolbar? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.nav_view)
+        toolbar = findViewById(R.id.toolbar)
+
+        navView!!.bringToFront()
+        setSupportActionBar(toolbar)
+        val toggle: ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, toolbar ,R.string.navigation_closed, R.string.navigation_open)
+        drawerLayout!!.addDrawerListener(toggle)
+
+        toggle.syncState()
+        navView!!.setNavigationItemSelectedListener{
+            onNavigationItemSelect(it)
+        }
+
+
         val pBar: ProgressBar = findViewById(R.id.progress)
         setProgressbar(pBar)
+    }
 
-        //TODO make dialog submit button round --b
-        fab_btn.setOnClickListener{
+    private fun onNavigationItemSelect(it: MenuItem) : Boolean{
+
+        if (it.itemId == R.id.nav_add){
             showDatePicker()
-
         }
+
+        return true
     }
 
     private fun showDatePicker(){
@@ -39,6 +73,9 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             ,Calendar.getInstance().get(Calendar.MONTH)
             , Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
         dpd.show()
+
+        //todo maybe remove
+        drawerLayout!!.closeDrawer(GravityCompat.START)
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {

@@ -2,4 +2,6 @@
     <string name="app_name">TwoDayRuleCalendar</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
+    <string name="navigation_closed">Close navigation drawer</string>
+    <string name="navigation_open">Open navigation drawer</string>
 </resources>
